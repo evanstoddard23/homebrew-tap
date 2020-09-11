@@ -19,7 +19,7 @@ jobs:
           repository: gruntwork-io/terragrunt
 
       - name: Check Version Status
-        run: echo "::set-env name=VERSION_STATUS::$(grep ${{ steps.terragrunt-latest.outputs.release }} Formula/terragrunt.rb)"
+        run: echo "::set-env name=VERSION_STATUS::$(grep ${{ steps.terragrunt-latest.outputs.release }} Formula/terragrunt.rb >/dev/null; echo $?)"
 
       - name: Update Homebrew formula
         if: ${{ env.VERSION_STATUS }} == 1
