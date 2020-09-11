@@ -21,7 +21,8 @@ jobs:
       - name: Update Homebrew formula
         uses: dawidd6/action-homebrew-bump-formula@v3
         with:
-          token: ${{ secrets.PAT }}
           tap: evanstoddard23/tap
           formula: terragrunt
+          force: true
+          token: ${{ secrets.PAT }}
           tag: ${{ steps.terragrunt-latest.outputs.release }}
