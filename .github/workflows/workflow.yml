@@ -22,7 +22,7 @@ jobs:
         run: echo "::set-env name=VERSION_STATUS::$(grep ${{ steps.terragrunt-latest.outputs.release }} Formula/terragrunt.rb)"
 
       - name: Update Homebrew formula
-        if: $VERSION_STATUS == 1
+        if: ${{ env.VERSION_STATUS }} == 1
         uses: dawidd6/action-homebrew-bump-formula@v3
         with:
           tap: evanstoddard23/tap
