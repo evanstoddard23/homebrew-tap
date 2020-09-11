@@ -18,8 +18,9 @@ jobs:
 
       - name: Update Homebrew formula
         uses: dawidd6/action-homebrew-bump-formula@v3
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           tap: evanstoddard23/tap
           formula: terragrunt
           tag: ${{ steps.terragrunt.outputs.release }}
