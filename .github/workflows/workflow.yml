@@ -1,17 +1,19 @@
-name: Log latest release
+name: update-terragrunt
 
 on:
-  pull_request:
   push:
     branches:
       - master
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
-  logLatestRelease:
+  update-terragrunt:
     runs-on: ubuntu-latest
     steps:
 
-      - id: terragrunt
+      - name: Find Latest Terragrunt Version
+        id: terragrunt-latest
         uses: pozetroninc/github-action-get-latest-release@master
         with:
           repository: gruntwork-io/terragrunt
@@ -22,4 +24,4 @@ jobs:
           token: ${{ secrets.PAT }}
           tap: evanstoddard23/tap
           formula: terragrunt
-          tag: ${{ steps.terragrunt.outputs.release }}
+          tag: ${{ steps.terragrunt-latest.outputs.release }}
