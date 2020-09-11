@@ -10,4 +10,16 @@ jobs:
   logLatestRelease:
     runs-on: ubuntu-latest
     steps:
-      - run: curl --silent "https://api.github.com/repos/gruntwork-io/terragrunt/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
+
+      - id: terragrunt
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          repository: gruntwork-io/terragrunt
+
+      - name: Update Homebrew formula
+        uses: dawidd6/action-homebrew-bump-formula@v3
+        with:
+          token: ${{secrets.TOKEN}}
+          tap: evanstoddard23/tap
+          formula: terragrunt
+          tag: ${{ steps.terragrunt.outputs.release }}
