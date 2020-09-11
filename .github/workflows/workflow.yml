@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
       - name: Find Latest Terragrunt Version
         id: terragrunt-latest
         uses: pozetroninc/github-action-get-latest-release@master
