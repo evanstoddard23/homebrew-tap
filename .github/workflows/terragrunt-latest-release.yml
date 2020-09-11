@@ -14,7 +14,7 @@ jobs:
         id: get_latest_release
         with:
           route: GET /repos/:repository/releases/latest
-          repository: https://github.com/gruntwork-io/terragrunt
+          repository: gruntwork-io/terragrunt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: "echo latest release: ${{ steps.get_latest_release.outputs.data }}"
