@@ -6,6 +6,7 @@ class Terragrunt < Formula
   license "MIT"
 
   depends_on "go" => :build
+  depends_on "tfenv" => :recommended
   depends_on "terraform" => :optional
 
   def install
