@@ -10,11 +10,4 @@ jobs:
   logLatestRelease:
     runs-on: ubuntu-latest
     steps:
-      - uses: octokit/request-action@v2.x
-        id: get_latest_release
-        with:
-          route: GET /repos/:repository/releases/latest
-          repository: gruntwork-io/terragrunt
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: "echo latest release: ${{ steps.get_latest_release.outputs.data }}"
+      - run: curl --silent "https://api.github.com/repos/gruntwork-io/terragrunt/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
