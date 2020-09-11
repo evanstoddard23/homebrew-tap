@@ -19,10 +19,11 @@ jobs:
           repository: gruntwork-io/terragrunt
 
       - name: Check Version Status
-        run: echo "::set-env name=VERSION_STATUS::$(grep ${{ steps.terragrunt-latest.outputs.release }} Formula/terragrunt.rb >/dev/null; echo $?)"
+        run: echo "::set-env name=VERSION_STATUS::$(grep ${{ steps.terragrunt-latest.outputs.release }} terragrunt.rb >/dev/null; echo $?)"
+        working-directory: Formula
 
       - name: Update Homebrew formula
-        if: ${{ env.VERSION_STATUS }} == 1
+        if: env.VERSION_STATUS == 1
         uses: dawidd6/action-homebrew-bump-formula@v3
         with:
           tap: evanstoddard23/tap
