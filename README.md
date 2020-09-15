@@ -9,7 +9,8 @@ Use the package manager [brew](https://brew.sh/).
 ## Usage
 
 ```bash
-brew install evanstoddard23/tap/terragrunt
+* brew install evanstoddard23/tap/terragrunt
+* brew install evanstoddard23/tap/tfsec
 ```
 
 ## Contributing
