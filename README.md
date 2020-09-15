@@ -1,6 +1,6 @@
 # homebrew-tap
 
-Homebrew tap for software I use with (I think) better options.
+Homebrew tap for software I use with better options and auto-updates as new tags are released.
 
 ## Installation
 
