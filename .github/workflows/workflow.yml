@@ -20,6 +20,7 @@ jobs:
         uses: pozetroninc/github-action-get-latest-release@master
         with:
           repository: gruntwork-io/terragrunt
+          excludes: prerelease, draft
 
       - name: Check Version Status
         run: echo "::set-env name=VERSION_STATUS::$(grep ${{ steps.terragrunt-latest.outputs.release }} terragrunt.rb >/dev/null; echo $?)"
