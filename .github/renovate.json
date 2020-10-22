@@ -1,0 +1,10 @@
+{
+  "extends": ["config:base", ":timezone(America/Chicago)", ":semanticCommits"],
+  "packageRules": [
+    {
+      "updateTypes": ["patch", "minor"],
+      "automerge": true
+    }
+  ],
+  "rebaseWhen": "behind-base-branch"
+}
