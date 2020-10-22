@@ -6,5 +6,5 @@
       "automerge": true
     }
   ],
-  "rebaseWhen": "behind-base-branch"
+  "requiredStatusChecks": null
 }
