@@ -6,5 +6,6 @@
       "automerge": true
     }
   ],
+  "stabilityDays": 1,
   "requiredStatusChecks": null
 }
