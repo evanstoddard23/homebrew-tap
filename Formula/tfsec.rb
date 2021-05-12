@@ -1,8 +1,8 @@
 class Tfsec < Formula
   desc "Static analysis powered security scanner for your terraform code"
   homepage "https://github.com/liamg/tfsec"
-  url "https://github.com/liamg/tfsec/archive/v0.39.32.tar.gz"
-  sha256 "7532ec3b006b6472eaa5808d1275c9df54fa8270567024ae43c7b8a191eb5bb9"
+  url "https://github.com/liamg/tfsec/archive/v0.39.33.tar.gz"
+  sha256 "11fb7158afd223124add0fc72b4e298e77be4cf537ff01e0b34be0db15b3f984"
 
   depends_on "go" => :build
 
